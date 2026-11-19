@@ -10,7 +10,7 @@ This README explains how to start the service locally. What it does is in
 
 - **Docker** with Docker Compose v2. This is all you need to start the service.
 - **JDK 17 or newer**, only to start it from an IDE or with Gradle. Gradle downloads JDK 25 itself
-  if it is missing.
+  if it is missing, both to run on (set in `gradle/gradle-daemon-jvm.properties`) and to build with.
 
 All dependencies come from Maven Central. No credentials needed.
 

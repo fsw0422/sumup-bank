@@ -31,6 +31,8 @@ The operations table is in [architecture.md](../architecture.md#operations).
 
 - One more port to configure.
 - Running Gradle directly needs JDK 17 or newer, and Gradle then downloads JDK 25 if it is missing.
+  Gradle also runs itself on JDK 25 (`gradle/gradle-daemon-jvm.properties`), because the jOOQ
+  plugin needs at least JDK 21 to load.
   The make targets that start, build, or test the service need no JDK
   ([decision 15](15-docker-only-local-setup.md)).
 
