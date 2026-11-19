@@ -1,4 +1,4 @@
-# Bank Account API
+# SumUp Bank
 
 A REST API to create bank accounts, deposit money, and transfer money between accounts.
 
@@ -43,6 +43,6 @@ BASE_URL=http://localhost:8081 MANAGEMENT_URL=http://localhost:9091 make smoke
 
 ## Start from the IDE
 
-Run `TestBankAccountApplication` (under `src/test`) or `./gradlew bootTestRun`. It starts
+Run `TestSumupBankApplication` (under `src/test`) or `./gradlew bootTestRun`. It starts
 PostgreSQL in a container for you, so Compose is not needed. Docker must still be running.
 The API and health endpoints use the same ports as above.

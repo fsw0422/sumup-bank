@@ -6,7 +6,7 @@ server:
 
 spring:
   application:
-    name: bank-account-api
+    name: sumup-bank
   main:
     banner-mode: off
   datasource:

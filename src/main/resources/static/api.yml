@@ -1,7 +1,7 @@
 openapi: 3.0.3
 
 info:
-  title: Bank Account API
+  title: SumUp Bank
   version: 1.0.0
   description: >
     Create bank accounts, deposit money, and transfer money between accounts.
@@ -246,7 +246,7 @@ components:
             Uppercase ISO 4217 code with a defined number of decimal places, such as EUR (2) or
             JPY (0). Codes without one, such as XAU, are rejected.
           example: EUR
-          x-field-extra-annotation: "@com.sumup.bankaccount.core.validation.SupportedCurrency"
+          x-field-extra-annotation: "@com.sumup.bank.core.validation.SupportedCurrency"
         initialBalance:
           type: integer
           format: int64

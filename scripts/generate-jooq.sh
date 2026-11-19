@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 IMAGE="postgres:18-alpine" # keep in step with docker-compose.yml and TestcontainersConfiguration
-CONTAINER="bank-account-api-jooq-$$"
+CONTAINER="sumup-bank-jooq-$$"
 MIGRATIONS="src/main/resources/db/migration"
 
 cleanup() { docker rm --force "$CONTAINER" >/dev/null 2>&1 || true; }

@@ -35,8 +35,8 @@ openApiGenerate {
     generatorName = "spring"
     inputSpec = layout.projectDirectory.file("src/main/resources/static/api.yml").asFile.path
     outputDir = openApiOutput.get().asFile.path
-    apiPackage = "com.sumup.bankaccount.adapters.primary.web"
-    modelPackage = "com.sumup.bankaccount.adapters.primary.web.model"
+    apiPackage = "com.sumup.bank.adapters.primary.web"
+    modelPackage = "com.sumup.bank.adapters.primary.web.model"
     cleanupOutput = true
     // Only the API interfaces and models: no sample application, pom.xml, or README.
     globalProperties = [apis: "", models: ""]
@@ -103,7 +103,7 @@ jooq {
                 javaTimeTypes = true
             }
             target {
-                packageName = "com.sumup.bankaccount.adapters.secondary.postgres.jooq"
+                packageName = "com.sumup.bank.adapters.secondary.postgres.jooq"
                 directory = jooqOutput
             }
         }

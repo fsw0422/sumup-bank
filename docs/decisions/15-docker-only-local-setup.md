@@ -20,7 +20,7 @@ registries, no credentials, and as few tools to install as possible.
   the tests reach the PostgreSQL that Testcontainers starts through `host.docker.internal`
   (Testcontainers calls this the "Docker wormhole"). The project is copied into the container, so
   the checkout stays untouched. Gradle's downloads stay in the Docker volume
-  `bank-account-api-gradle`.
+  `sumup-bank-gradle`.
 - **The local database has no password and no published port.** It uses trust auth, and only the
   API container can reach it. The repository holds no secrets.
 - **No `.sdkmanrc`.** The Gradle toolchain is the single place that says "Java 25".

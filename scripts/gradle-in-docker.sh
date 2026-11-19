@@ -10,7 +10,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 IMAGE="eclipse-temurin:25-jdk"                 # keep in step with the Dockerfile's build stage
-GRADLE_CACHE_VOLUME="bank-account-api-gradle"  # downloads survive between runs and `make down`
+GRADLE_CACHE_VOLUME="sumup-bank-gradle"  # downloads survive between runs and `make down`
 
 if [[ $# -eq 0 ]]; then
   echo "Usage: $0 <gradle tasks...>" >&2

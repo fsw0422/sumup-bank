@@ -1,4 +1,4 @@
-name: bank-account-api
+name: sumup-bank
 
 services:
   postgres:

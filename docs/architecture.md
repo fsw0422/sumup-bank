@@ -1,4 +1,4 @@
-# Bank Account API: architecture
+# SumUp Bank: architecture
 
 How the service is built. What it must do is in [requirements.md](requirements.md), and why it is
 built this way is in the [decision records](decisions/README.md).
@@ -33,7 +33,7 @@ this changes. The core may use the Bean Validation API to define constraints suc
 flowchart TB
     client["<b>API client</b><br/>[Person or software system]<br/>Opens accounts, deposits money,<br/>and transfers money"]
     operator["<b>Operator</b><br/>[Person, through Prometheus]<br/>Watches health and metrics"]
-    api["<b>Bank Account API</b><br/>[Software system]<br/>Keeps accounts and balances,<br/>and moves money atomically"]
+    api["<b>SumUp Bank</b><br/>[Software system]<br/>Keeps accounts and balances,<br/>and moves money atomically"]
 
     client -->|"JSON over HTTP"| api
     operator -->|"Health checks and metrics over HTTP"| api
@@ -48,7 +48,7 @@ flowchart TB
     client["<b>API client</b><br/>[Person or software system]"]
     operator["<b>Operator</b><br/>[Person, through Prometheus]"]
 
-    subgraph system ["Bank Account API [Software system], run with Docker Compose"]
+    subgraph system ["SumUp Bank [Software system], run with Docker Compose"]
         app["<b>API application</b><br/>[Container: Java 25, Spring Boot 4.1]<br/>REST API on port 8080.<br/>Health and metrics on port 9090."]
         db[("<b>Database</b><br/>[Container: PostgreSQL 18]<br/>accounts and transactions tables")]
     end
@@ -146,7 +146,7 @@ sequenceDiagram
 ## Code layout
 
 ```
-src/main/java/com/sumup/bankaccount/
+src/main/java/com/sumup/bank/
 ├── core/                        business rules, no HTTP or SQL
 │   ├── models/                  Account, Transaction, commands
 │   ├── exceptions/              one sealed class per business error
@@ -164,7 +164,7 @@ jooq-generated/                    jOOQ table classes generated from the schema 
 
 ### Where each term lives
 
-Code paths are relative to `src/main/java/com/sumup/bankaccount/`. The terms are defined in
+Code paths are relative to `src/main/java/com/sumup/bank/`. The terms are defined in
 [requirements.md](requirements.md#terms).
 
 | Term | Code | API | Storage |

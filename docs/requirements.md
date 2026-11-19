@@ -1,4 +1,4 @@
-# Bank Account API: requirements
+# SumUp Bank: requirements
 
 What the service does, as rules you can test. How it is built is in
 [architecture.md](architecture.md), and why it works this way is in the
