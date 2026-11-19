@@ -74,10 +74,11 @@ class ApiExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   /**
-   * The database is down or busy: tell the client to retry instead of reporting a bug. A real
-   * outage rarely surfaces as a data access error. Spring fails to open the database transaction
-   * ({@link CannotCreateTransactionException}), or a pooled connection has died and the rollback
-   * fails ({@link TransactionSystemException}), which hides the original error.
+   * The database is down or busy: tell the client to retry instead of reporting a bug. Inside a
+   * database transaction, a real outage rarely surfaces as a data access error. Spring fails to open
+   * the transaction ({@link CannotCreateTransactionException}), or a pooled connection has died and
+   * the rollback fails ({@link TransactionSystemException}), which hides the original error. Reading
+   * an account has no transaction, so there the outage surfaces as a data access error.
    */
   @ExceptionHandler({
       TransientDataAccessException.class,

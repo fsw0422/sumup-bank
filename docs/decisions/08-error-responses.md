@@ -48,3 +48,8 @@ A real outage was checked by stopping PostgreSQL in Compose. At first, requests 
 the failures to open or roll back the database transaction were not mapped. After the fix, requests
 got `503` with `Retry-After: 1`, readiness turned `503` while liveness stayed `200`, and the service
 recovered on its own once the database was back.
+
+Checked again on 2026-11-19, after reading an account stopped using a transaction: with PostgreSQL
+stopped, `GET /accounts/{accountId}` still returns `503` after the 5-second connection timeout. The
+error now arrives as a data access error (`DataAccessResourceFailureException`) instead of
+`CannotCreateTransactionException`.

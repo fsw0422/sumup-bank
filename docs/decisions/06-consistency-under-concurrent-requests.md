@@ -13,8 +13,10 @@ zero, and never deadlock.
 ## Decision
 
 1. **One database transaction per operation.** Both balance updates and the stored transaction
-   commit together or not at all. The use cases are `@Transactional`
-   ([decision 11](11-hexagonal-architecture.md)).
+   commit together or not at all. The use cases that write are `@Transactional`
+   ([decision 11](11-hexagonal-architecture.md)). Reading an account is one `SELECT`, which is
+   atomic on its own, so it has no annotation. A read that spans several queries needs a read-only
+   `REPEATABLE READ` transaction instead ([decision 07](07-isolation-level-read-committed.md#when-to-revisit)).
 2. **Pessimistic row locks.** Each operation locks the accounts it changes with
    `SELECT ... FOR UPDATE`. Other requests on the same account wait, so no request reads a stale
    balance and overwrites another's change.

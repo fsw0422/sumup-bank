@@ -56,8 +56,8 @@ class DefaultAccountService implements AccountService {
   }
 
   @Override
-  @Transactional(readOnly = true)
   public Account getAccount(UUID accountId) {
+    // No @Transactional: one SELECT is atomic on its own (decision 06).
     return accounts.findById(accountId).orElseThrow(() -> new AccountNotFoundException(accountId));
   }
 
