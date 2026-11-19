@@ -1,6 +1,6 @@
 # 16. Virtual threads not enabled
 
-- **Status:** Accepted
+- **Status:** Replaced by [18](18-virtual-threads-enabled.md)
 - **Type:** Technical
 - **Requirements:** [FR-5](../requirements.md#fr-5-safe-under-concurrent-requests), and the brief's "could realistically run in production"
 

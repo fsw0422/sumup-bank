@@ -17,8 +17,8 @@ Write the service in **Java** (Java 25).
 ## Why
 
 - **Cheap waiting without coroutines.** Coroutines are the main reason to pick Kotlin. Java now has
-  virtual threads, which give the same cheap waiting with plain blocking code. They are not enabled
-  yet, but turning them on is one setting ([decision 16](16-virtual-threads-not-enabled.md)).
+  virtual threads, which give the same cheap waiting with plain blocking code. They are enabled
+  ([decision 18](18-virtual-threads-enabled.md)).
 - **Concise data types without data classes.** Java has `record` now. `Account` and `Transaction`
   are records.
 

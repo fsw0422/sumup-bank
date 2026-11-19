@@ -9,11 +9,18 @@ spring:
     name: sumup-bank
   main:
     banner-mode: off
+  threads:
+    virtual:
+      enabled: true # every request runs on a new virtual thread (decision 18)
   datasource:
     # Read from the environment. Real deployments load DB_PASSWORD from a secrets manager.
     url: ${DB_URL:jdbc:postgresql://localhost:5432/bank}
     username: ${DB_USERNAME:bank}
     password: ${DB_PASSWORD:}
+    hikari:
+      # Fail fast with 503 when all connections are busy, instead of queueing for the default 30 s.
+      # Virtual threads remove Tomcat's 200-thread limit, so this is the backpressure (decision 18).
+      connection-timeout: 5000 # milliseconds
   mvc:
     problemdetails:
       enabled: true # RFC 9457 error bodies for errors raised by Spring MVC itself
